@@ -2,4 +2,4 @@
 
 Kurssilla toteutetaan "Ratebeer" olueiden arviointiin tarkoitettu websovellus.
 
-[Olutarvio](olutarvio.herokuapp.com)
+[Olutarvio](http://olutarvio.herokuapp.com)
