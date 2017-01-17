@@ -3,8 +3,20 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+
+# Use sqlite3 as the database for Active Record when testing
+group :development, :test do
+  gem 'sqlite3'
+end
+
+# Use PostgreSQL when in production.
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
+ruby '2.3.1'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
