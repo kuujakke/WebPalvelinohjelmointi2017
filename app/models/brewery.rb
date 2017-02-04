@@ -7,7 +7,7 @@ class Brewery < ApplicationRecord
   validates :name, presence: true
   validates :year, numericality: {
       greater_than_or_equal_to: 1024,
-      less_than_or_equal_to: 2017,
+      less_than_or_equal_to: Time.current.year,
       only_integer: true
   }
 
