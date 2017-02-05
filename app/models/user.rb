@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_many :ratings
+  has_many :beers, through: :ratings
 
   validates :username,
             uniqueness: true,
