@@ -9,4 +9,5 @@ class User < ApplicationRecord
             length: { minimum: 3, maximum: 30 }
 
   include AverageRating
+  has_secure_password
 end
