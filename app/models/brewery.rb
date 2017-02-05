@@ -5,11 +5,12 @@ class Brewery < ApplicationRecord
   include AverageRating
 
   validates :name, presence: true
-  validates :year, numericality: {
-      greater_than_or_equal_to: 1024,
-      less_than_or_equal_to: Time.current.year,
-      only_integer: true
-  }
+  validates :year,
+            numericality: {
+                greater_than_or_equal_to: 1024,
+                only_integer: true
+            }
+  validate :year_cannot_be_in_the_future
 
   def print_report
     puts name
@@ -19,5 +20,9 @@ class Brewery < ApplicationRecord
 
   def to_s
     return "#{name}"
+  end
+
+  def year_cannot_be_in_the_future
+    errors.add(:year) unless year <= Time.current.year
   end
 end
