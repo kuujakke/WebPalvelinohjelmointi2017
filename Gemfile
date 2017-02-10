@@ -4,9 +4,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.0'
 
-# Use sqlite3 as the database for Active Record when testing
-group :development, :test do
-  gem 'sqlite3'
+group :test do
+  gem 'factory_girl_rails'
 end
 
 # Use PostgreSQL when in production.
@@ -48,6 +47,7 @@ group :development, :test do
   # PRY-konsoli
   gem 'pry-rails'
   gem 'rspec-rails', '~> 3.5'
+  gem 'sqlite3'
 end
 
 group :development do

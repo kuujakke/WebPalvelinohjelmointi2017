@@ -30,7 +30,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "with a proper password" do
-    let(:user){ User.create username:"Pekka", password:"Secret1", password_confirmation:"Secret1" }
+    let(:user){ FactoryGirl.create(:user) }
 
     it "is saved" do
       expect(user).to be_valid
@@ -38,11 +38,9 @@ RSpec.describe User, type: :model do
     end
 
     it "and with two ratings, has the correct average rating" do
-      Brewery.create name: "ok", year: 1994
-      beer = Beer.create name: "ok", style: "ok", brewery: Brewery.first
-      user = User.create username: "oasdasdasdk", password: "Aasdasd2", password_confirmation: "Aasdasd2"
-      Rating.create score: 10, beer: beer, user: user
-      Rating.create score: 20, beer: beer, user: user
+      FactoryGirl.create(:rating, user:user)
+      FactoryGirl.create(:rating2, user:user)
+
       expect(user.ratings.count).to eq(2)
       expect(user.average_rating).to eq(15.0)
     end
