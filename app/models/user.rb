@@ -16,4 +16,13 @@ class User < ApplicationRecord
   validates :password, format: { with: /([A-Z].*\d)|(\d.*[A-Z].*)/,
   message: "should contain one number and one capital letter" }
 
+  def favorite_beer
+    return nil if ratings.empty?
+    ratings.order(score: :desc).limit(1).first.beer
+  end
+
+  def favorite_style
+    return nil if ratings.empty?
+    ratings.joins(:beer).group('beers.style').average(:score).sort_by(&:last).last.first
+  end
 end

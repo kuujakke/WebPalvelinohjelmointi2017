@@ -24,7 +24,7 @@ FactoryGirl.define do
 
   factory :beer do
     name "Öl"
-    style "Pohjasakka"
     brewery
+    style "Pohjasakka"
   end
 end
