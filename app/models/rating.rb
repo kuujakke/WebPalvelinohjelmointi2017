@@ -1,6 +1,6 @@
 class Rating < ApplicationRecord
-  belongs_to :beer, dependent: :destroy
-  belongs_to :user, dependent: :destroy
+  belongs_to :beer
+  belongs_to :user
 
   validates :score, numericality: {
       greater_than_or_equal_to: 1,
@@ -9,6 +9,6 @@ class Rating < ApplicationRecord
   }
 
   def to_s
-    return "#{beer.name} #{score}"
+     "#{beer.name} #{score}"
   end
 end
