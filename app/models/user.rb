@@ -25,4 +25,9 @@ class User < ApplicationRecord
     return nil if ratings.empty?
     ratings.joins(:beer).group('beers.style').average(:score).sort_by(&:last).last.first
   end
+
+  def favorite_brewery
+    return nil if ratings.empty?
+    Brewery.find(ratings.joins(:beer).group('beers.brewery_id').average(:score).sort_by(&:last).last.first).name
+  end
 end
