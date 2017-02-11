@@ -6,6 +6,8 @@ gem 'rails', '~> 5.0.0'
 
 group :test do
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 # Use PostgreSQL when in production.
