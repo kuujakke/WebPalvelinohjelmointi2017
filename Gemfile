@@ -70,3 +70,6 @@ gem 'therubyracer', platforms: :ruby
 
 # Passwords to users
 gem 'bcrypt', '~> 3.1.7'
+
+#Coveralls
+gem 'coveralls', require: false
