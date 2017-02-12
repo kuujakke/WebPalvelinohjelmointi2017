@@ -4,7 +4,7 @@ include Helpers
 
 describe "User" do
   before :each do
-    FactoryGirl.create :user
+    @user = FactoryGirl.create :user
   end
 
   describe "who has signed up" do
@@ -32,5 +32,24 @@ describe "User" do
     expect{
       click_button('Create User')
     }.to change{User.count}.by(1)
+  end
+  describe "who has ratings" do
+    before :each do
+      create_beers_with_ratings(@user, 10, 11, 13)
+    end
+    it "should show ratings count correctly" do
+      visit user_path(@user)
+      expect(page).to have_content "Has made 3 ratings"
+    end
+    it "should show ratings average correctly" do
+      visit user_path(@user)
+      expect(page).to have_content "average 11.33"
+    end
+    it "should only count own ratings" do
+      other_user = FactoryGirl.create :user, username: "Other"
+      create_beer_with_rating(other_user, 50)
+      visit user_path(@user)
+      expect(page).to have_content "Has made 3 ratings, average 11.33"
+    end
   end
 end

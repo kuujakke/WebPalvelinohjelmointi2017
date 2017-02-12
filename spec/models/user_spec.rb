@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+include Helpers
+
 RSpec.describe User, type: :model do
   it "has the username set correctly" do
     user = User.new username: "Pekka"
@@ -119,17 +121,5 @@ RSpec.describe User, type: :model do
 
       expect(user.favorite_brewery).to eq(best.brewery.name)
     end
-  end
-end
-
-def create_beer_with_rating(user, score)
-  beer = FactoryGirl.create(:beer)
-  FactoryGirl.create(:rating, score:score, beer:beer, user:user)
-  beer
-end
-
-def create_beers_with_ratings(user, *scores)
-  scores.each do |score|
-    create_beer_with_rating(user, score)
   end
 end
