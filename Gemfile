@@ -9,6 +9,7 @@ group :test do
   gem 'capybara'
   gem 'launchy'
   gem 'simplecov', require: false
+  gem "sqlite3", :platform => [:ruby, :mswin, :mingw]
 end
 
 # Use PostgreSQL when in production.
