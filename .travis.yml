@@ -1,10 +1,16 @@
 language: ruby
-
 rvm:
- - 2.3.1
-
+- 2.3.1
 script:
- - bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - bundle exec rake db:test:prepare
- - bundle exec rspec -fd spec/
+- bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- bundle exec rake db:test:prepare
+- bundle exec rspec -fd spec/
+deploy:
+  provider: heroku
+  api_key:
+    secure: J+WmFCbvMnnTThE4VCSSGLJU5y3gCn+Mx240Lty/Yel1JuTuZljkSH4kvPSNcrXLviXhtZGIBG2XvCBqv+bhVWSAtegSL2yvkOamnKQRZWSjhd1KqisVkMWkmgDYsvFZiahL5GmJdY2dkaHJaCGSyMhSiJwmfrcvgvJ2bMHBmYX8vo1F2L6VaMmpSZJMeSNYxg6LITBpgQH5bMhB94RcDFeZfhd7HXxzoHmzADqIU3fp0a6zRUV75zchpxcF/E0b2hYxPHe11cFYY6ShafKYAIweA76iVoqlsTx0yk0kDOD8mPnKz5XItuLULvCGPH31WJIxPewnruTal4xXSYPUZs4XmNmU5Z+4jq+h3jKb3EmDt/d7ldvUSEeS6C+IrOsbLdXkXReca2YP3Eo4QaVR+Zmr9DScFnjpNrA+UDwE5s1o1toewrhZa4kJE4yOefE+r8cKjn0lc/yBT3E4iHIqpabbx4kvpIHEEXNSigO/HVdVpKbzmUu3NYC6k+iD6gmuiulsu3negA1WmdKoEngZjUfLOGJwRYJJCL5Jh+NITqnNlKVd5dxZTApyxTKES1Kd95BV3mx/sN0blcCWoeSOYK9SC6ahUKc0EXSWO+9mPNYgsGU/af0KHGTt+AeujGWUWzt4pWQV/afL0zsBnzpwHi8il7m2KyWN/2L5l3Dpjpg=
+  app: olutarvio
+  on:
+    repo: kuujakke/WebPalvelinohjelmointi2017
+  run: "rake db:migrate"
