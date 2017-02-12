@@ -1,7 +1,6 @@
 require 'digest/md5'
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate, only: [:destroy]
 
   # GET /breweries
   # GET /breweries.json
@@ -72,20 +71,5 @@ class BreweriesController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def brewery_params
       params.require(:brewery).permit(:name, :year)
-  end
-
-  REALM = "SuperSecret"
-
-  def authenticate
-    admin_accounts = {
-        "admin" => "secret",
-        "pekka" => Digest::MD5.hexdigest(["pekka", REALM, "beer"].join(":")),
-        "arto" => "foobar",
-        "matti" => "ittam"
-    }
-
-    authenticate_or_request_with_http_digest(REALM) do |username|
-      admin_accounts[username]
-    end
   end
 end
