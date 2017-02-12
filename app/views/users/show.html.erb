@@ -3,6 +3,7 @@
 <h2><%= @user.username %></h2>
 <% unless @user.ratings.empty? %>
     <%= "Has made #{pluralize(@user.ratings.count, "rating")}, average #{@user.average_rating}" %><br>
+    <%= "Favorite beer: #{@user.favorite_beer.name}" %><br>
     <%= "Favorite style: #{@user.favorite_style}" %><br>
     <%= "Favorite brewery: #{@user.favorite_brewery}" %>
 <% end %>

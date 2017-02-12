@@ -58,5 +58,16 @@ describe "User" do
         page.first(:link, 'delete').click
       }.to change{Rating.count}.from(3).to(2)
     end
+    describe "has data about" do
+      it "favorite beer" do
+        expect(page).to have_content "Favorite beer: Öl"
+      end
+      it "favorite style" do
+        expect(page).to have_content "Favorite style: Pohjasakka"
+      end
+      it "favorite brewery" do
+        expect(page).to have_content "Favorite brewery: Bruuweri"
+      end
+    end
   end
 end
