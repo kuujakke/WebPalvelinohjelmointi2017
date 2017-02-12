@@ -25,4 +25,24 @@ describe "Rating" do
     expect(beer1.ratings.count).to eq(1)
     expect(beer1.average_rating).to eq(15.0)
   end
+
+  describe "listing" do
+    before :each do
+      visit ratings_path
+    end
+    describe "when there is no ratings" do
+      it "should not show ratings count" do
+        expect(page).not_to have_content "Number of ratings:"
+      end
+    end
+    describe "when ratings exist" do
+      let!(:rating1) { FactoryGirl.create :rating, score: 10, beer: beer1, user: user }
+      let!(:rating2) { FactoryGirl.create :rating, score: 15, beer: beer2, user: user }
+
+      it "should contain the number of ratings" do
+        visit ratings_path
+        expect(page).to have_content "Number of ratings: 2"
+      end
+    end
+  end
 end
