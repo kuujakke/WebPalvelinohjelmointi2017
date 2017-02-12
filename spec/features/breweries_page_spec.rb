@@ -1,5 +1,7 @@
 require 'rails_helper'
 
+include Helpers
+
 describe "Breweries page" do
   it "should not have any before been created" do
     visit breweries_path
@@ -15,7 +17,7 @@ describe "Breweries page" do
       @breweries.each do |brewery_name|
         FactoryGirl.create(:brewery, name: brewery_name, year: year += 1)
       end
-
+      sign_in(username:"Pekka", password:"Foobar1")
       visit breweries_path
     end
 
