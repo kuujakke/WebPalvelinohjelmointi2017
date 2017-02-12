@@ -36,6 +36,7 @@ describe "User" do
   describe "who has ratings" do
     before :each do
       create_beers_with_ratings(@user, 10, 11, 13)
+      sign_in(username:"Pekka", password:"Foobar1")
     end
     it "should show ratings count correctly" do
       visit user_path(@user)
@@ -50,6 +51,12 @@ describe "User" do
       create_beer_with_rating(other_user, 50)
       visit user_path(@user)
       expect(page).to have_content "Has made 3 ratings, average 11.33"
+    end
+    it "should be able to remove own ratings" do
+      visit user_path(@user)
+      expect{
+        page.first(:link, 'delete').click
+      }.to change{Rating.count}.from(3).to(2)
     end
   end
 end
