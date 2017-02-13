@@ -13,7 +13,7 @@
         null,
         null,
         1,
-        38,
+        36,
         null,
         null
       ],
@@ -52,6 +52,7 @@
       ],
       "/home/kuujakke/hy/wadror/ratebeer/app/controllers/places_controller.rb": [
         1,
+        null,
         1,
         null,
         null,
@@ -81,8 +82,8 @@
         1,
         null,
         1,
-        178,
-        146,
+        172,
+        140,
         null,
         null,
         1,
@@ -112,7 +113,7 @@
         1,
         null,
         1,
-        15,
+        14,
         null,
         null
       ],
@@ -136,18 +137,18 @@
         null,
         null,
         1,
-        16,
         15,
+        14,
         null,
         null,
         1,
-        16,
         15,
+        14,
         null,
         null,
         1,
-        16,
         15,
+        14,
         null,
         null
       ],
@@ -262,7 +263,7 @@
         1,
         null,
         1,
-        20,
+        19,
         null,
         null,
         null,
@@ -665,6 +666,6 @@
         0
       ]
     },
-    "timestamp": 1487018927
+    "timestamp": 1487020461
   }
 }
