@@ -42,8 +42,53 @@
         1,
         null
       ],
+      "/home/kuujakke/hy/wadror/ratebeer/app/helpers/places_helper.rb": [
+        1,
+        null
+      ],
       "/home/kuujakke/hy/wadror/ratebeer/app/helpers/users_helper.rb": [
         1,
+        null
+      ],
+      "/home/kuujakke/hy/wadror/ratebeer/app/controllers/places_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/home/kuujakke/hy/wadror/ratebeer/app/controllers/application_controller.rb": [
+        1,
+        1,
+        null,
+        null,
+        1,
+        null,
+        1,
+        178,
+        146,
+        null,
+        null,
+        1,
+        4,
+        null,
+        null,
         null
       ],
       "/home/kuujakke/hy/wadror/ratebeer/app/models/beer.rb": [
@@ -143,24 +188,6 @@
         0,
         null,
         0,
-        null,
-        null
-      ],
-      "/home/kuujakke/hy/wadror/ratebeer/app/controllers/application_controller.rb": [
-        1,
-        1,
-        null,
-        null,
-        1,
-        null,
-        1,
-        178,
-        146,
-        null,
-        null,
-        1,
-        4,
-        null,
         null,
         null
       ],
@@ -464,6 +491,13 @@
         0,
         0
       ],
+      "/home/kuujakke/hy/wadror/ratebeer/app/models/place.rb": [
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
       "/home/kuujakke/hy/wadror/ratebeer/app/jobs/application_job.rb": [
         0,
         0
@@ -631,6 +665,6 @@
         0
       ]
     },
-    "timestamp": 1486934826
+    "timestamp": 1487018927
   }
 }
