@@ -22,3 +22,7 @@
 
 # Ignore IDE settings
 .idea
+
+# Coveragen muuttuvia tiedostoja.
+coverage/.last_run.json
+coverage/.resultset.json
