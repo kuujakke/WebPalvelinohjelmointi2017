@@ -52,24 +52,15 @@
       ],
       "/home/kuujakke/hy/wadror/ratebeer/app/controllers/places_controller.rb": [
         1,
-        null,
         1,
         null,
         null,
         1,
-        0,
-        0,
-        0,
-        0,
-        null,
-        0,
+        1,
+        1,
         0,
         null,
-        0,
-        0,
-        0,
-        null,
-        0,
+        1,
         null,
         null,
         null
@@ -82,7 +73,7 @@
         1,
         null,
         1,
-        172,
+        174,
         140,
         null,
         null,
@@ -433,6 +424,34 @@
         null,
         null
       ],
+      "/home/kuujakke/hy/wadror/ratebeer/lib/beermapping_api.rb": [
+        1,
+        1,
+        0,
+        null,
+        0,
+        0,
+        null,
+        0,
+        null,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null
+      ],
+      "/home/kuujakke/hy/wadror/ratebeer/app/models/place.rb": [
+        1,
+        1,
+        2,
+        null,
+        null
+      ],
       "/home/kuujakke/hy/wadror/ratebeer/app/controllers/ratings_controller.rb": [
         1,
         null,
@@ -487,13 +506,6 @@
         0
       ],
       "/home/kuujakke/hy/wadror/ratebeer/app/models/membership.rb": [
-        0,
-        0,
-        0,
-        0
-      ],
-      "/home/kuujakke/hy/wadror/ratebeer/app/models/place.rb": [
-        0,
         0,
         0,
         0,
@@ -666,6 +678,6 @@
         0
       ]
     },
-    "timestamp": 1487020461
+    "timestamp": 1487099296
   }
 }
