@@ -7,7 +7,6 @@ script:
  - RAILS_ENV=test bundle exec rake db:migrate --trace
  - RAILS_ENV=test bundle exec rake db:test:prepare --trace
  - bundle exec rspec -fd spec/
-bundler_args: --binstubs=./bundler_stubs
 deploy:
   provider: heroku
   api_key:

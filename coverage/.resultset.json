@@ -427,21 +427,21 @@
       "/home/kuujakke/hy/wadror/ratebeer/lib/beermapping_api.rb": [
         1,
         1,
-        0,
+        3,
         null,
-        0,
-        0,
+        3,
+        3,
         null,
-        0,
+        3,
         null,
-        0,
-        0,
-        0,
+        2,
+        2,
+        4,
         null,
         null,
         null,
         1,
-        0,
+        3,
         null,
         null
       ],
@@ -678,6 +678,6 @@
         0
       ]
     },
-    "timestamp": 1487100814
+    "timestamp": 1487149384
   }
 }
