@@ -41,4 +41,6 @@ Rails.application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.active_record.maintain_test_schema = false
+
+  config.cache_store = :memory_store
 end
