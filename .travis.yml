@@ -1,12 +1,15 @@
 language: ruby
 rvm:
- - 2.3.1
+- 2.3.1
 env:
- - DB=sqlite
+  matrix:
+  - DB=sqlite
+  global:
+    secure: nxC7/zfUEBpFjUHEFdg7YUrKA+TYTY+P6KBIihJbQDV7ewoeZUha86g7BPUX8oLmhMPfNb+0q2oDv5ci8w9iBSkemuFdQwPhknai4+gcuEOSBECWncpOCKOUtyXvBzoaL7YftuZknmr7CGcqNJ4GilVkQ9xBfVXf7nNj+MruCwtp4x5Cy7gb8m+yoEROxkG2lq7KwktKjX3v2faM3QV+GWUN0zFVE7vwE51QeX2ERUEeNZiSyUKTRSRTShStHfJ3PzVZcqsbEimGrfEivmZPZzH0PUrsniCiCsyscShYmIlFHAdXd+9d/3UF/5HDQNrMfYc0gaGE7hFlVqG/eAlt6/eesSX6vgRR+Oh4U7mY2PRecfanFRv+M6TpqbcNE/kBYumZCX0OC+PM033+gnctwDRIfxlW0ruwdKlG4QP4P6/66Dgi37bGdw7VeOkbZxGwm65q4b+mhB7nhA9pCtZ8MTMza/35ulXJc75XBttf7hu2I/5ptQOQCab9w7Jd18Uhqjuh+zV1KQ8wH73pl0Zm6r2tJK2Y3CEATQOqY1f7g1YPXSbVwe4UWp+F63wPbCB6z11Gj7cp/gXrnoduM7U8Ix9NYBKq3bhzjcveTbMnTeo4xfzX9+jrgRm6KPyF8vXzYLtjM38eVZEF16rbzpVrrMRNz8m0sKBP/+h/+GpemZM=
 script:
- - RAILS_ENV=test bundle exec rake db:migrate --trace
- - RAILS_ENV=test bundle exec rake db:test:prepare --trace
- - bundle exec rspec -fd spec/
+- RAILS_ENV=test bundle exec rake db:migrate --trace
+- RAILS_ENV=test bundle exec rake db:test:prepare --trace
+- bundle exec rspec -fd spec/
 deploy:
   provider: heroku
   api_key:
@@ -14,4 +17,4 @@ deploy:
   app: olutarvio
   on:
     repo: kuujakke/WebPalvelinohjelmointi2017
-  run: "rake db:migrate"
+  run: rake db:migrate
