@@ -27,15 +27,12 @@
           <%= link_to 'signin', signin_path %>
           <%= link_to 'signup', signup_path %>
       <% end %>
+      <% if session[:last_rating].nil? %>
+          | no ratings given
+      <% else %>
+          | previous rating: <%= session[:last_rating] %>
+      <% end %>
     </div>
-
-    <% if session[:last_rating].nil? %>
-      <p>no ratings given</p>
-    <% else %>
-      <p>previous rating: <%= session[:last_rating] %></p>
-    <% end %>
-
-
 
     <%= yield %>
   </body>

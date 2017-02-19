@@ -1,0 +1,12 @@
+<p id="notice"><%= notice %></p>
+<% if @place %>
+    <h1><%= @place.send(:name) %></h1>
+    <p>
+      <%= @place.send(:street) %><br>
+      <%= @place.send(:zip) %>
+      <%= @place.send(:city) %>
+    </p>
+    <% @query =+ URI.encode(@place.send(:name)) + "," + URI.encode(@place.send(:street)) + "," + URI.encode(@place.send(:country)) %>
+    <iframe width="800" height="400" src=<%= "//www.google.com/maps/embed/v1/place?key=#{@key}&q=#{@query}&zoom=17" %>>
+    </iframe>
+<% end %>
