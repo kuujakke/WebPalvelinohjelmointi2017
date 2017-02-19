@@ -4,6 +4,7 @@ include Helpers
 
 describe "Beers page" do
   let!(:brewery) { brewery = FactoryGirl.create :brewery }
+  let!(:style) {style = FactoryGirl.create :style}
   let!(:user) { FactoryGirl.create :user }
   describe "create new beer" do
     before :each do

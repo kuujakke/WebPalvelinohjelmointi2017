@@ -25,6 +25,11 @@ FactoryGirl.define do
   factory :beer do
     name "Öl"
     brewery
-    style "Pohjasakka"
+    style
+  end
+
+  factory :style do
+    name "Pohjasakka"
+    description "Pahan makuista velliä tynnyrin pohjalta."
   end
 end

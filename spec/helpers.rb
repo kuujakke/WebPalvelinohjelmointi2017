@@ -8,7 +8,8 @@ module Helpers
   end
 
   def create_beer_with_rating(user, score)
-    beer = FactoryGirl.create(:beer)
+    style = FactoryGirl.create(:style)
+    beer = FactoryGirl.create(:beer, style: style)
     FactoryGirl.create(:rating, score:score, beer:beer, user:user)
     beer
   end

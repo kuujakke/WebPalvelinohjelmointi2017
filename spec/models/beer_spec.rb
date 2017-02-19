@@ -2,8 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Beer, type: :model do
   let(:brewery){ Brewery.create name:"Bruuweri", year:1989}
+  let!(:style){ FactoryGirl.create(:style)}
   describe "with valid parameters" do
-    let(:beer){Beer.create name:"Bruuveri", style:"Hiano", brewery: brewery}
+    let(:beer){Beer.create name:"Bruuveri", style:style, brewery: brewery}
 
     it "is saved" do
       expect(beer).to be_valid
@@ -15,11 +16,11 @@ RSpec.describe Beer, type: :model do
       expect(beer).to_not be_valid
     end
     it "when name is missing" do
-      beer = Beer.create style: "Huono", brewery: brewery
+      beer = Beer.create style: style, brewery: brewery
       expect(beer).to_not be_valid
     end
     it "when brewery is missing" do
-      beer = Beer.create name: "Brewsky", style: "Huono"
+      beer = Beer.create name: "Brewsky", style: style
       expect(beer).to_not be_valid
     end
   end
