@@ -77,3 +77,6 @@ gem 'coveralls', require: false
 
 # Beermapping API
 gem 'httparty'
+
+# Apixu weather API
+gem 'apixu', :git => 'git://github.com/apixu/apixu-ruby.git'

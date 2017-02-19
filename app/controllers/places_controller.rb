@@ -9,6 +9,10 @@ class PlacesController < ApplicationController
     if @places.empty?
       redirect_to places_path, notice: "No locations in #{params[:city]}"
     else
+      @city = params[:city]
+      @weather_icon = ApixuApi.condition_in(params[:city])
+      @temperature = ApixuApi.temperature_in(params[:city])
+      @wind = ApixuApi.wind_in(params[:city])
       render :index
     end
   end

@@ -5,24 +5,40 @@
     <%= submit_tag "Search" %>
 <% end %>
 
+<% if @weather_icon %>
+    <section class="weather">
+      <h4><%= "The current beer weather in #{@city.split.map(&:capitalize).join(' ')}" %></h4>
+      <%= image_tag(@weather_icon, size:100) %>
+      <p style="display: inline-block; vertical-align: top">
+        <strong>Temperature: </strong>
+        <%= "#{@temperature} Celsius" %><br>
+        <strong>Wind: </strong>
+        <%= @wind %>
+      </p>
+    </section>
+<% end %>
+
 <% if @places %>
-    <table>
-      <thead>
-      <% Place.rendered_fields.each do |f| %>
-          <td><%=f %></td>
-      <% end %>
-      </thead>
-      <% @places.each do |place| %>
-          <tr>
-            <td><%= place.send(:id) %></td>
-            <td><%= link_to(place.send(:name), place_path(place.send(:id))) %></td>
-            <td><%= place.send(:status) %></td>
-            <td><%= place.send(:street) %></td>
-            <td><%= place.send(:city) %></td>
-            <td><%= place.send(:zip) %></td>
-            <td><%= place.send(:country) %></td>
-            <td><%= place.send(:overall) %></td>
-          </tr>
-      <% end %>
-    </table>
+    <section class="places">
+      <h4><%= "Places to get your beer" %></h4>
+      <table style="float:none">
+        <thead>
+        <% Place.rendered_fields.each do |f| %>
+            <td><%=f %></td>
+        <% end %>
+        </thead>
+        <% @places.each do |place| %>
+            <tr>
+              <td><%= place.send(:id) %></td>
+              <td><%= link_to(place.send(:name), place_path(place.send(:id))) %></td>
+              <td><%= place.send(:status) %></td>
+              <td><%= place.send(:street) %></td>
+              <td><%= place.send(:city) %></td>
+              <td><%= place.send(:zip) %></td>
+              <td><%= place.send(:country) %></td>
+              <td><%= place.send(:overall) %></td>
+            </tr>
+        <% end %>
+      </table>
+    </section>
 <% end %>
