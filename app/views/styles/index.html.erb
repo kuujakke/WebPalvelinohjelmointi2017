@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+<% unless @styles.empty? %>
+    <ul>
+      <% @styles.each do |s| %>
+          <li>
+            <%= link_to(s.name, style_path(s)) %>
+          </li>
+      <% end %>
+    </ul>
+<% end %>

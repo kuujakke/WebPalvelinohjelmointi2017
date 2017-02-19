@@ -1,10 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<h2> <%= @beer %> </h2>
+<h2> <%= @beer.name %> </h2>
 
 <p>
   <strong>Style:</strong>
-  <%= @beer.style %><br>
+  <%= link_to(@beer.style.name, style_path(@beer.style)) %><br>
+  <strong>Brewery:</strong>
+  <%= link_to(@beer.brewery.name, brewery_path(@beer.brewery)) %>
 </p>
 
 <p>
