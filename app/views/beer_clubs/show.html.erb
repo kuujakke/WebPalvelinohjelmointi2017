@@ -22,10 +22,13 @@
       </li>
   <% end %>
 </ul>
-
-<%= form_for(@membership) do |f| %>
-    <%= f.hidden_field :beer_club_id %>
-    <%= f.submit value:"join the club" %>
+<% if current_user %>
+    <% if @beer_club.members.where(id:current_user).empty? %>
+      <%= form_for(@membership) do |f| %>
+          <%= f.hidden_field :beer_club_id %>
+          <%= f.submit value:"join the club" %>
+      <% end %>
+    <% end %>
 <% end %>
 
 <br>
