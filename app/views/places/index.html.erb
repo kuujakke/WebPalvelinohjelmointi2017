@@ -6,10 +6,10 @@
 <% end %>
 
 <% if @weather_icon %>
-    <section class="weather">
+    <section class="row">
       <h4><%= "The current beer weather in #{@city.split.map(&:capitalize).join(' ')}" %></h4>
-      <%= image_tag(@weather_icon, size:100) %>
-      <p style="display: inline-block; vertical-align: top">
+      <%= image_tag(@weather_icon, size:100, class: "col-md-2") %>
+      <p class="col-md-2">
         <strong>Temperature: </strong>
         <%= "#{@temperature} Celsius" %><br>
         <strong>Wind: </strong>
@@ -21,7 +21,7 @@
 <% if @places %>
     <section class="places">
       <h4><%= "Places to get your beer" %></h4>
-      <table style="float:none">
+      <table class="table table-hover">
         <thead>
         <% Place.rendered_fields.each do |f| %>
             <td><%=f %></td>
