@@ -18,7 +18,7 @@
 <ul>
   <% @beer_club.members.each do |member| %>
       <li>
-        <%= link_to member.username, member %>
+        <%= link_to member.username, member, class:'btn btn-link' %>
       </li>
   <% end %>
 </ul>
@@ -38,5 +38,5 @@
 
 <br>
 
-<%= link_to 'Edit', edit_beer_club_path(@beer_club) %> |
-<%= link_to 'Back', beer_clubs_path %>
+<%= link_to 'Edit', edit_beer_club_path(@beer_club), class:'btn btn-default' %>
+<%= link_to 'Back', beer_clubs_path, class:'btn btn-default' %>
