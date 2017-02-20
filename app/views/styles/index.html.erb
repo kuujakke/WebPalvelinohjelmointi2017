@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
 <h1>Listing styles</h1>
 <% unless @styles.empty? %>
-    <ul>
+    <ul class="list-group">
       <% @styles.each do |s| %>
-          <li>
-            <%= link_to(s.name, style_path(s)) %>
-          </li>
+          <%= link_to style_path(s), class:'list-group-item' do %>
+              <span class="list-group-item-heading"><%= s.name %></span>
+              <span class='badge badge-primary'><%= s.beers.count %></span>
+          <% end %>
       <% end %>
     </ul>
 <% end %>

@@ -1,15 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <%= form_tag places_path do %>
-    city <%= text_field_tag :city, params[:city] %>
-    <%= submit_tag "Search" %>
+    <div class="input-group">
+      <%= text_field_tag :city, params[:city], class: 'form-control', placeholder: 'City' %>
+      <span class="input-group-btn">
+        <%= submit_tag "Search", class: 'btn btn-primary' %>
+      </span>
+    </div>
 <% end %>
 
 <% if @weather_icon %>
-    <section class="row">
+    <section class="media">
       <h4><%= "The current beer weather in #{@city.split.map(&:capitalize).join(' ')}" %></h4>
-      <%= image_tag(@weather_icon, size:100, class: "col-md-2") %>
-      <p class="col-md-2">
+      <%= image_tag(@weather_icon, size:100, class: 'media-object pull-left') %>
+      <p class="media-heading">
         <strong>Temperature: </strong>
         <%= "#{@temperature} Celsius" %><br>
         <strong>Wind: </strong>

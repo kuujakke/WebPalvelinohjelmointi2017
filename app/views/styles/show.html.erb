@@ -1,10 +1,13 @@
 <p id="notice"><%= notice %></p>
 <h1><%= @style.name %></h1>
 <p><%= @style.description %></p>
-<ul>
+<ul class="list-group">
   <% @beers.each do |b| %>
-  <li>
-    <%= link_to(b.name, beer_path(b)) %>
-  </li>
+      <%= link_to(beer_path(b), class: 'list-group-item') do %>
+          <span class="list-group-item-heading"><%= b.name %></span>
+          <% unless b.ratings.empty? %>
+            <span class="badge badge-primary"><%= b.average_rating %></span>
+          <% end %>
+      <% end %>
   <% end %>
 </ul>
