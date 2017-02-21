@@ -20,6 +20,7 @@ FactoryGirl.define do
   factory :brewery do
     name "Bruuweri"
     year 1998
+    active true
   end
 
   factory :beer do
