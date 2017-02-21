@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>Recent ratings</h2>
+  </div>
+  <div class="panel-body">
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th>Beer</th>
+        <th>Rating</th>
+        <th>User</th>
+        <th>Time</th>
+        <th colspan="3"></th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @recent_ratings.each do |rating| %>
+          <tr>
+            <td><%= link_to rating.beer.name, rating.beer %></td>
+            <td><%= rating.score %></td>
+            <td><%= link_to rating.user.username, rating.user %></td>
+            <td><%= "#{time_ago_in_words(rating.created_at)} ago" %></td>
+          </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

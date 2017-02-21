@@ -1,11 +1,14 @@
-<h2>List of ratings</h2>
-<%= "Number of ratings: #{@ratings.count}" unless @ratings.empty? %>
-<ul class="list-group">
-  <% @ratings.each do |rating| %>
-      <li class="list-group-item">
-        <%= rating %>
-        <%= link_to rating.user.username, rating.user, class: 'label label-primary pull-right' %>
-      </li>
-  <% end %>
-</ul>
+<div class="row">
+  <div class="col-md-4">
+    <%= render 'list', o: @top_breweries unless @top_breweries.empty? %>
+  </div>
+  <div class="col-md-4">
+    <%= render 'list', o: @top_beers unless @top_beers.empty? %>
+  </div>
+  <div class="col-md-4">
+    <%= render 'list', o: @top_styles unless @top_styles.empty? %>
+  </div>
+</div>
+<%= render 'user-list', o: @top_raters unless @top_raters.empty? %>
+<%= render 'rating-list', o: @recent_ratings unless @recent_ratings.empty?%>
 <%= link_to 'New Rating', new_rating_path, class: 'btn btn-primary btn-block' %>

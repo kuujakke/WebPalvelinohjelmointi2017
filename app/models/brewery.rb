@@ -1,5 +1,6 @@
 class Brewery < ApplicationRecord
-  include RatingAverage
+
+  include TopRateable
 
   has_many :beers, dependent: :destroy
   has_many :ratings, through: :beers
@@ -13,4 +14,5 @@ class Brewery < ApplicationRecord
             }
   scope :active, -> { where active:true }
   scope :retired, -> { where active:[nil,false] }
+
 end

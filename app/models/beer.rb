@@ -1,5 +1,6 @@
 class Beer < ApplicationRecord
-  include RatingAverage
+
+  include TopRateable
 
   belongs_to :brewery
   belongs_to :style
@@ -13,4 +14,5 @@ class Beer < ApplicationRecord
   def to_s
     "#{name} #{brewery.name}"
   end
+
 end

@@ -11,4 +11,8 @@ class Rating < ApplicationRecord
   def to_s
      "#{beer.name} #{score}"
   end
+
+  def self.recent(n)
+    Rating.all.sort_by(&:created_at).reverse.first(n)
+  end
 end

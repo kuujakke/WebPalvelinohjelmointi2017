@@ -30,4 +30,7 @@ class User < ApplicationRecord
     return nil if ratings.empty?
     Brewery.find(ratings.joins(:beer).group('beers.brewery_id').average(:score).sort_by(&:last).last.first).name
   end
+  def self.top(n)
+    User.all.sort_by{ |u| -(u.ratings.count) }
+  end
 end
