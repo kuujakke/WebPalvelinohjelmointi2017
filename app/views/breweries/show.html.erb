@@ -1,8 +1,14 @@
 <p id="notice"><%= notice %></p>
 
+<h2><%= @brewery.name %>
+  <% if not @brewery.active  %>
+      <span class="label label-info">retired</span>
+  <% end %>
+</h2>
+
 <p>
-<h2> <%= @brewery.name %> </h2>
-  <i>Established at <%= @brewery.year %> </i>
+  <em>Established year:</em>
+  <%= @brewery.year %>
 </p>
 
 <p>Beers: <%= @brewery.beers.count %> </p>
