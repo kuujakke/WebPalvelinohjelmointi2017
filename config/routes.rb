@@ -12,5 +12,5 @@ Rails.application.routes.draw do
   delete 'signout', to: 'sessions#destroy'
   resources :places, only: [:index, :show]
   post 'places', to: 'places#search'
-  resources :styles, only: [:index, :show]
+  resources :styles, only: [:index, :show, :edit]
 end

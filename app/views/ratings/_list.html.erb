@@ -7,7 +7,7 @@
       <% o.each do |o| %>
           <li class="list-group-item">
             <%= link_to o.name, o %>
-            <span class="badge badge-primary"><%= o.average_rating %></span>
+            <span class="badge badge-primary"><%= round(o.average_rating) %></span>
           </li>
       <% end %>
     </ul>

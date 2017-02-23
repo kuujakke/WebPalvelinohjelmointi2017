@@ -3,7 +3,7 @@ module RatingAverage
 
   def average_rating
     unless ratings.empty?
-      (ratings.map(&:score).inject(&:+) / ratings.count.to_f).round(2)
+      ratings.map(&:score).inject(&:+) / ratings.count.to_f
     else
       0
     end
