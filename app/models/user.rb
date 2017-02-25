@@ -42,4 +42,12 @@ class User < ApplicationRecord
     end
   end
 
+  def is_active?
+    if active
+      true
+    else
+      false
+    end
+  end
+
 end

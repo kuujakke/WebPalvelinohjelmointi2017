@@ -1,6 +1,10 @@
-<p id="notice"><%= notice %></p>
-
-<h2><%= @user.username %></h2>
+<h2>
+  <%= @user.username %>
+  <% if not @user.active  %>
+      <span class="label label-info">frozen</span>
+  <% end %>
+</h2>
+<%=  %>
 <% unless @user.ratings.empty? %>
     <%= "Has made #{pluralize(@user.ratings.count, "rating")}, average #{@user.average_rating}" %><br>
     <%= "Favorite beer: #{@user.favorite_beer.name}" %><br>
@@ -21,4 +25,5 @@
     <%= link_to 'Edit', edit_user_path(@user), class: 'btn btn-warning' %>
     <%= link_to 'Destroy', @user, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>
 <% end %>
+<%= link_to @user.active? ? "Freeze account" : "Thaw account", toggle_activity_user_path(@user), method: :post, class: 'btn btn-primary' if current_user.is_admin? %>
 <%= link_to 'Back', users_path, class: 'btn btn-default' %>

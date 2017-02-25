@@ -5,11 +5,19 @@ class SessionsController < ApplicationController
 
   def create
     user = User.find_by username: params[:username]
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to user_path(user), notice: "Welcome back!"
+    if user
+      if user && user.authenticate(params[:password]) && user.active
+        session[:user_id] = user.id
+        redirect_to user_path(user), notice: "Welcome back!"
+      else
+        if user.active
+          redirect_back(fallback_location: :new, alert: "Username and password do not match!")
+        else
+          redirect_back(fallback_location: new, alert: "User account is frozen!")
+        end
+      end
     else
-      redirect_back(fallback_location: :new, notice: "username and password do not match")
+      redirect_back(fallback_location: new, alert: "No such account!")
     end
   end
 

@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_user, only: [:show, :edit, :update, :destroy, :toggle_activity]
 
   # GET /users
   # GET /users.json
@@ -63,6 +63,12 @@ class UsersController < ApplicationController
         format.json { head :no_content }
       end
     end
+  end
+
+  def toggle_activity
+    @user.update_attribute :active, (not @user.active)
+    new_status = @user.active? ? "active" : "frozen"
+    redirect_to :back, notice:"brewery activity status changed to #{new_status}"
   end
 
   private

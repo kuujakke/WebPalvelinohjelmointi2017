@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   # määritellään, että metodi current_user tulee käyttöön myös näkymissä
   helper_method :current_user
   helper_method :round
-  helper_method :is_admin
 
   def current_user
     return nil if session[:user_id].nil?

@@ -10,4 +10,8 @@ module ApplicationHelper
     end
   end
 
+  def freeze_user(user)
+    user.update_attribute(:active, true)
+  end
+
 end
