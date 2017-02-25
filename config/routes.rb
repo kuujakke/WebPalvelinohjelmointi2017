@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'styles/edit'
+
   resources :memberships
   resources :beer_clubs
   resources :users

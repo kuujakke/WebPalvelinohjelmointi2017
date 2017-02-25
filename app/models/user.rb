@@ -33,4 +33,13 @@ class User < ApplicationRecord
   def self.top(n)
     User.all.sort_by{ |u| -(u.ratings.count) }
   end
+
+  def is_admin?
+    if admin
+      true
+    else
+      false
+    end
+  end
+
 end

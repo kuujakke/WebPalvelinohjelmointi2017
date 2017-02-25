@@ -11,7 +11,7 @@
       <tr>
         <td><%= link_to brewery.name, brewery %></td>
         <td><%= brewery.year %></td>
-        <td></td>
+        <td><%= edit_and_destroy_buttons(brewery) %></td>
       </tr>
   <% end %>
   </tbody>
