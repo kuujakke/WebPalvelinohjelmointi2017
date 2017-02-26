@@ -20,8 +20,8 @@
           <tr>
             <td><%= link_to user.username, user %></td>
             <td><%= link_to user.favorite_beer.name, user.favorite_beer %></td>
-            <td><%= link_to user.favorite_style, user.favorite_style %></td>
-            <td><%= link_to user.favorite_brewery, user.favorite_brewery %></td>
+            <td><%= link_to user.favorite_style.name, user.favorite_style %></td>
+            <td><%= link_to user.favorite_brewery.name, user.favorite_brewery %></td>
             <td><%= user.ratings.count %></td>
           </tr>
       <% end %>
