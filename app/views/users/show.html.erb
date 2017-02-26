@@ -8,8 +8,8 @@
 <% unless @user.ratings.empty? %>
     <%= "Has made #{pluralize(@user.ratings.count, "rating")}, average #{@user.average_rating}" %><br>
     <%= "Favorite beer: #{@user.favorite_beer.name}" %><br>
-    <%= "Favorite style: #{@user.favorite_style}" %><br>
-    <%= "Favorite brewery: #{@user.favorite_brewery}" %>
+    <%= "Favorite style: #{@user.favorite_style.name}" %><br>
+    <%= "Favorite brewery: #{@user.favorite_brewery.name}" %>
 <% end %>
 <h3>Ratings:</h3>
 <ul class="list-group">

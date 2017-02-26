@@ -21,17 +21,28 @@ class User < ApplicationRecord
     ratings.order(score: :desc).limit(1).first.beer
   end
 
+  def self.top(n)
+    User.all.sort_by{ |u| -(u.ratings.count) }
+  end
+
   def favorite_style
-    return nil if ratings.empty?
-    Style.find(ratings.joins(:beer).group('beers.style_id').average(:score).sort_by(&:last).last.first).name
+    favorite :style
   end
 
   def favorite_brewery
-    return nil if ratings.empty?
-    Brewery.find(ratings.joins(:beer).group('beers.brewery_id').average(:score).sort_by(&:last).last.first).name
+    favorite :brewery
   end
-  def self.top(n)
-    User.all.sort_by{ |u| -(u.ratings.count) }
+
+  def favorite(category)
+    return nil if ratings.empty?
+
+    rated = ratings.map{ |r| r.beer.send(category) }.uniq
+    rated.sort_by { |item| -rating_of(category, item) }.first
+  end
+
+  def rating_of(category, item)
+    ratings_of = ratings.select{ |r| r.beer.send(category)==item }
+    ratings_of.map(&:score).inject(&:+) / ratings_of.count.to_f
   end
 
   def is_admin?
