@@ -2,12 +2,11 @@ require 'digest/md5'
 class BreweriesController < ApplicationController
   before_action :set_brewery, only: [:show, :edit, :update, :destroy]
   before_action :ensure_that_signed_in, except: [:index, :show]
+  before_action :set_breweries, only: [:index]
 
   # GET /breweries
   # GET /breweries.json
   def index
-    @active_breweries = Brewery.active
-    @retired_breweries = Brewery.retired
   end
 
   # GET /breweries/1
@@ -70,17 +69,44 @@ class BreweriesController < ApplicationController
 
     new_status = brewery.active? ? "active" : "retired"
 
-    redirect_to :back, notice:"brewery activity status changed to #{new_status}"
+    redirect_to :back, notice: "brewery activity status changed to #{new_status}"
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_brewery
-      @brewery = Brewery.find(params[:id])
+    @brewery = Brewery.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def brewery_params
-      params.require(:brewery).permit(:name, :year, :active)
+    params.require(:brewery).permit(:name, :year, :active)
+  end
+
+  def set_breweries
+    order = params[:order] || 'name'
+    reverse = session[:reverse] || false
+    case order
+      when 'name'
+        if reverse
+          @active_breweries = Brewery.active.order(:name).reverse
+          @retired_breweries = Brewery.retired.order(:name).reverse
+          session[:reverse] = false
+        else
+          @active_breweries = Brewery.active.order(:name)
+          @retired_breweries = Brewery.retired.order(:name)
+          session[:reverse] = true
+        end
+      when 'year'
+        if reverse
+          @active_breweries = Brewery.active.order(:year).reverse
+          @retired_breweries = Brewery.retired.order(:year).reverse
+          session[:reverse] = false
+        else
+          @active_breweries = Brewery.active.order(:year)
+          @retired_breweries = Brewery.retired.order(:year)
+          session[:reverse] = true
+        end
+    end
   end
 end
