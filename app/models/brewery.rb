@@ -15,4 +15,12 @@ class Brewery < ApplicationRecord
   scope :active, -> { where active:true }
   scope :retired, -> { where active:[nil,false] }
 
+  def count
+    beers.size
+  end
+
+  def active
+    active? ? "yes" : "no"
+  end
+
 end
