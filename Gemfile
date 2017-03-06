@@ -10,6 +10,8 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
+  gem 'selenium-webdriver', '2.53.4'
+  gem 'database_cleaner'
 end
 
 # Use PostgreSQL when in production.
@@ -84,3 +86,6 @@ gem 'httparty'
 
 # Apixu weather API
 gem 'apixu', :git => 'https://github.com/apixu/apixu-ruby.git'
+
+# JQuery -turbolinks
+gem 'jquery-turbolinks'

@@ -2,12 +2,26 @@
 
 <h1>Listing beers</h1>
 
-<table id="beertable" class="table table-hover">
-  <tr>
-    <th> <a href="#" id="name">Name</a> </th>
-    <th> <a href="#" id="style">Style</a> </th>
-    <th> <a href="#" id="brewery">Brewery</a> </th>
-  </tr>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th> <%= link_to 'Name', beers_path(order:"name") %> </th>
+      <th> <%= link_to 'Style', beers_path(order:"style") %> </th>
+      <th> <%= link_to 'Brewery', beers_path(order:"brewery") %> </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @beers.each do |beer| %>
+      <% binding.pry if beer.brewery.nil? %>
+      <tr>
+        <td><%= link_to beer.name, beer, class:'btn btn-link' %></td>
+        <td><%= link_to beer.style.name, beer.style, class:'btn btn-link' %></td>
+        <td><%= link_to beer.brewery.name, beer.brewery, class:'btn btn-link' %></td>
+        <td><%= edit_and_destroy_buttons(beer) %></td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
 
 <%= link_to 'New Beer', new_beer_path, class:'btn btn-primary btn-block' if current_user %>
