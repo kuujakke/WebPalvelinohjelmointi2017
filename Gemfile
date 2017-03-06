@@ -10,8 +10,9 @@ group :test do
   gem 'launchy'
   gem 'simplecov', require: false
   gem 'webmock'
-  gem 'selenium-webdriver', '2.53.4'
+  gem 'selenium-webdriver', '3.2.2'
   gem 'database_cleaner'
+  gem 'chromedriver-helper'
 end
 
 # Use PostgreSQL when in production.

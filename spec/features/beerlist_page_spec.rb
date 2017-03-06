@@ -30,16 +30,30 @@ describe "beerlist page" do
     self.use_transactional_fixtures = true
   end
 
-  it "shows one known beer", :js => true do
-    visit beers_path
+  it "shows a known beer", js: true do
+    visit beerlist_path
+    find('table').find('tr:nth-child(2)')
     expect(page).to have_content "Nikolai"
   end
 
-  it "shows a known beer", :js => true do
+  it "orders by name by default", js: true do
     visit beerlist_path
-    find('table').find('tr:nth-child(2)')
-    save_and_open_page
-    expect(page).to have_content "Nikolai"
+    row = find('table').find('tr:nth-child(2)')
+    expect(row).to have_content "Fastenbier"
+  end
+
+  it "orders by style when clicked", js: true do
+    visit beerlist_path
+    find('#style').click
+    row = find('table').find('tr:nth-child(2)')
+    expect(row).to have_content "Lager"
+  end
+
+  it "orders by brewery when clicked", js: true do
+    visit beerlist_path
+    find('#brewery').click
+    row = find('table').find('tr:nth-child(2)')
+    expect(row).to have_content "Ayinger"
   end
 
 end
