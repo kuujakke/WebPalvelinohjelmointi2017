@@ -12,10 +12,10 @@ require 'capybara/rspec'
 require 'helpers'
 require 'webmock/rspec'
 
-Capybara.register_driver :selenium_chrome do |app|
-  Capybara::Selenium::Driver.new(app, browser: :chrome)
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
 end
-Capybara.javascript_driver = :selenium_chrome
+Capybara.javascript_driver = :selenium
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
